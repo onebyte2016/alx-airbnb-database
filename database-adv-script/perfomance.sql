@@ -1,30 +1,4 @@
 -- performance.sql
-EXPLAIN ANALYZE
-SELECT 
-    b.id AS booking_id,
-    b.booking_date,
-    b.start_date,
-    b.end_date,
-    u.id AS user_id,
-    u.name AS user_name,
-    u.email,
-    p.id AS property_id,
-    p.name AS property_name,
-    p.location,
-    pay.id AS payment_id,
-    pay.amount,
-    pay.status,
-    pay.payment_date
-FROM 
-    bookings b
-JOIN 
-    users u ON b.user_id = u.id
-JOIN 
-    properties p ON b.property_id = p.id
-JOIN 
-    payments pay ON pay.booking_id = b.id;
-
-
 --Step 1: Initial Query
 
 SELECT 
@@ -100,6 +74,33 @@ SELECT
     u.name AS user_name,
     p.name AS property_name,
     pay.amount
+FROM 
+    bookings b
+JOIN 
+    users u ON b.user_id = u.id
+JOIN 
+    properties p ON b.property_id = p.id
+JOIN 
+    payments pay ON pay.booking_id = b.id;
+
+
+--Step 2: Analyze with EXPLAIN
+EXPLAIN ANALYZE
+SELECT 
+    b.id AS booking_id,
+    b.booking_date,
+    b.start_date,
+    b.end_date,
+    u.id AS user_id,
+    u.name AS user_name,
+    u.email,
+    p.id AS property_id,
+    p.name AS property_name,
+    p.location,
+    pay.id AS payment_id,
+    pay.amount,
+    pay.status,
+    pay.payment_date
 FROM 
     bookings b
 JOIN 
