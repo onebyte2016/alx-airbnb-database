@@ -46,3 +46,24 @@ JOIN
     properties p ON b.property_id = p.id
 JOIN 
     payments pay ON b.id = pay.booking_id;
+
+
+Step 4: Compare Performance
+Run EXPLAIN ANALYZE again on both the original and refactored queries.
+
+🔍 Compare:
+Execution Time
+
+Join type (Index Scan vs Seq Scan)
+
+Rows examined vs returned
+
+Buffers hit/read
+
+Optional: Save as Shell Command
+To apply this logic via a CLI or automation:
+
+bash
+Copy
+Edit
+psql -d your_database -f performance.sql
