@@ -1,4 +1,4 @@
-# 1. Find total number of bookings made by each user using COUNT and GROUP
+--1. Find total number of bookings made by each user using COUNT and GROUP
 
 SELECT 
     u.id AS user_id,
@@ -13,7 +13,7 @@ GROUP BY
 ORDER BY 
     total_bookings DESC;
 
-#2. Rank properties based on the total number of bookings using a window function
+--2. Rank properties based on the total number of bookings using a window function
 
 
 SELECT 
